@@ -103,3 +103,28 @@ const cerinta4 = () => {
 };
 loop.push({ cerinta: 4, func: cerinta4 });
 // end cerinta 4
+
+// cerinta 5
+const cerinta5 = () => {
+	const patrat = {
+		x: canvas.width / 2,
+		y: 0,
+		l: 10,
+	};
+	clearInterval(interval);
+	interval = setInterval(() => {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = 'black';
+		ctx.fillRect(canvas.width / 2, 0, 30, 30);
+		// patrat negru for reference cat vine 30 de pixeli
+		ctx.fillStyle = 'red';
+		ctx.fillRect(patrat.x, patrat.y, patrat.l, patrat.l);
+		patrat.y += 0.5;
+		// se deseneaza de 60 de ori pe secunda.. 30 / 60 = 0.5
+		if (patrat.y > canvas.height) {
+			patrat.y = 0;
+		}
+	}, 1000 / 60);
+};
+loop.push({ cerinta: 5, func: cerinta5 });
+// end cerinta 5
