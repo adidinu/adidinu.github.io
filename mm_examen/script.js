@@ -153,3 +153,32 @@ const cerinta6 = () => {
 };
 loop.push({ cerinta: 6, func: cerinta6 });
 // end cerinta 6
+
+// cerinta 7
+const cerinta7 = () => {
+	const svg = document.querySelector('svg');
+	const circle = {
+		cx: 15, // center x
+		cy: '50%',
+		r: 15,
+		fill: 'red',
+	};
+	const svgns = svg.getAttribute('xmlns');
+	const c = document.createElementNS(svgns, 'circle');
+	c.setAttributeNS(null, 'cx', circle.cx);
+	c.setAttributeNS(null, 'cy', circle.cy);
+	c.setAttributeNS(null, 'r', circle.r);
+	c.setAttributeNS(null, 'fill', circle.fill);
+	svg.appendChild(c);
+	const svgWidth = svg.getBoundingClientRect().width;
+	console.log(svgWidth);
+	interval = setInterval(() => {
+		circle.cx += 0.5;
+		c.setAttributeNS(null, 'cx', circle.cx);
+		if (circle.cx - circle.r > svgWidth) {
+			circle.cx = 15;
+		}
+	}, 1000 / 60);
+};
+loop.push({ cerinta: 7, func: cerinta7 });
+// end cerinta 7
