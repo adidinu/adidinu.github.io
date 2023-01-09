@@ -67,7 +67,7 @@ const cerinta3 = () => {
 		// parametrii drawImage:
 		// imagine, poz X din imagine, poz Y din imagine, cat Width sa ia, cat Height sa ia
 		// poz X in canvas, poz Y in canvas, cat Width sa puna in canvas, cat Height sa puna in canvas
-		ctx.drawImage(img, xPos - 40, yPos - 40, 80, 80, xPos - 40, yPos - 40, 20, 20);
+		ctx.drawImage(img, xPos - 40, yPos - 40, 80, 80, xPos - 40, yPos - 40, 80, 80);
 	};
 	canvas.addEventListener('click', handleClick);
 };
