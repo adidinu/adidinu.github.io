@@ -158,6 +158,7 @@ loop.push({ cerinta: 6, func: cerinta6 });
 const cerinta7 = () => {
 	clearInterval(interval);
 	const svg = document.querySelector('svg');
+	svg.querySelectorAll('circle').forEach((c) => c.remove());
 	const circle = {
 		cx: 15,
 		cy: '50%', // center y
