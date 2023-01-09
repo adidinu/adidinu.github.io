@@ -64,7 +64,10 @@ const cerinta3 = () => {
 		xPos = e.offsetX;
 		yPos = e.offsetY;
 		// scria 30 da nu se vede nimic am pus mai mult
-		ctx.drawImage(img, xPos - 40, yPos - 40, 80, 80, xPos - 40, yPos - 40, 80, 80);
+		// parametrii drawImage:
+		// imagine, poz X din imagine, poz Y din imagine, cat Width sa ia, cat Height sa ia
+		// poz X in canvas, poz Y in canvas, cat Width sa puna in canvas, cat Height sa puna in canvas
+		ctx.drawImage(img, xPos - 40, yPos - 40, 80, 80, xPos - 40, yPos - 40, 20, 20);
 	};
 	canvas.addEventListener('click', handleClick);
 };
@@ -139,6 +142,7 @@ const cerinta6 = () => {
 		const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		const pixels = data.data;
 		for (let i = 0; i < pixels.length; i += 4) {
+			// formula pt gasit grayscale pe pixel
 			const light = pixels[i] * 0.3 + pixels[i + 1] * 0.6 + pixels[i + 2] * 0.11;
 			pixels[i] = light;
 			pixels[i + 1] = light;
@@ -205,6 +209,7 @@ const cerinta8 = () => {
 				const yP = i;
 				if (Math.sqrt(Math.pow(xP - x, 2) + Math.pow(yP - y, 2)) >= 50) {
 					for (let p = 0; p < 4; p += 4) {
+						// randu I * lungimea canvas * 4 + coloana J * 4 + ce pixel(0 rosu, 1 verde, 2 albastru)
 						const r = pixels[i * canvas.width * 4 + j * 4 + p];
 						const g = pixels[i * canvas.width * 4 + j * 4 + p + 1];
 						const b = pixels[i * canvas.width * 4 + j * 4 + p + 2];
