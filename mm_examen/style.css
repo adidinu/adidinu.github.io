@@ -1,0 +1,79 @@
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body > div {
+	margin: 30px;
+}
+
+canvas {
+	border: 1px solid black;
+}
+
+p {
+	font-size: 24px;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	gap: 30px;
+}
+
+.butoane {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 20px;
+	max-width: 500px;
+}
+
+.butoane button {
+	padding: 5px;
+	font-size: 18px;
+}
+
+.cerinte {
+	margin-top: 30px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	max-width: 1000px;
+	gap: 10px;
+}
+
+/* cerinta 1 */
+#c1 {
+	width: 300px;
+	height: 300px;
+	background: #00000033;
+	position: relative;
+}
+#c1:after {
+	content: '';
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #ff0000cc;
+	position: absolute;
+	animation: animatie-bila-1 3s linear infinite;
+}
+@keyframes animatie-bila-1 {
+	0% {
+		top: 0;
+		left: 0;
+	}
+	50% {
+		top: 270px; /* 300px(divu) - 30px(bila) ca sa nu iasa din el */
+		left: 270px;
+	}
+	100% {
+		top: 0;
+		left: 0;
+	}
+}
+/* end cerinta 1 */
