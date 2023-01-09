@@ -84,6 +84,8 @@ const cerinta4 = () => {
 	ctx.fillRect(350, 250, 350, 225);
 	ctx.fillStyle = '#9567ba';
 	ctx.fillRect(200, 100, 200, 100);
+	ctx.fillStyle = '#9922ff';
+	ctx.fillRect(77, 346, 321, 127);
 	// asta rosu e pus de test ca daca se face albastru merge bn
 	ctx.fillStyle = '#ff0000';
 	ctx.fillRect(500, 50, 100, 100);
