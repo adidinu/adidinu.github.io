@@ -128,3 +128,27 @@ const cerinta5 = () => {
 };
 loop.push({ cerinta: 5, func: cerinta5 });
 // end cerinta 5
+
+// cerinta 6
+const cerinta6 = () => {
+	clearInterval(interval);
+	const trigger = document.getElementById('trig_6');
+	const handleImage = (image) => {
+		ctx.drawImage(image, 0, 0);
+		const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+		const pixels = data.data;
+		for (let i = 0; i < pixels.length; i += 4) {
+			const light = pixels[i] * 0.3 + pixels[i + 1] * 0.6 + pixels[i + 2] * 0.11;
+			pixels[i] = light;
+			pixels[i + 1] = light;
+			pixels[i + 2] = light;
+		}
+		ctx.putImageData(data, 0, 0);
+	};
+	trigger.addEventListener('click', () => {
+		const img = document.querySelector('img');
+		handleImage(img);
+	});
+};
+loop.push({ cerinta: 6, func: cerinta6 });
+// end cerinta 6
