@@ -132,6 +132,7 @@ loop.push({ cerinta: 5, func: cerinta5 });
 // cerinta 6
 const cerinta6 = () => {
 	clearInterval(interval);
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	const trigger = document.getElementById('trig_6');
 	const handleImage = (image) => {
 		ctx.drawImage(image, 0, 0);
