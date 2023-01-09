@@ -156,10 +156,11 @@ loop.push({ cerinta: 6, func: cerinta6 });
 
 // cerinta 7
 const cerinta7 = () => {
+	clearInterval(interval);
 	const svg = document.querySelector('svg');
 	const circle = {
-		cx: 15, // center x
-		cy: '50%',
+		cx: 15,
+		cy: '50%', // center y
 		r: 15,
 		fill: 'red',
 	};
@@ -182,3 +183,42 @@ const cerinta7 = () => {
 };
 loop.push({ cerinta: 7, func: cerinta7 });
 // end cerinta 7
+
+// cerinta 8
+const cerinta8 = () => {
+	clearInterval(interval);
+	const img = document.querySelector('img');
+	img.src = 'culori.jpg';
+	ctx.drawImage(img, 0, 0);
+	const originalData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+	canvas.addEventListener('click', (e) => {
+		ctx.putImageData(originalData, 0, 0);
+		const newData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+		const pixels = newData.data;
+		const x = e.offsetX;
+		const y = e.offsetY;
+
+		// go over pixels row by row
+		for (let i = 0; i < canvas.height; i++) {
+			for (let j = 0; j < canvas.width; j++) {
+				const xP = j;
+				const yP = i;
+				if (Math.sqrt(Math.pow(xP - x, 2) + Math.pow(yP - y, 2)) >= 50) {
+					for (let p = 0; p < 4; p += 4) {
+						const r = pixels[i * canvas.width * 4 + j * 4 + p];
+						const g = pixels[i * canvas.width * 4 + j * 4 + p + 1];
+						const b = pixels[i * canvas.width * 4 + j * 4 + p + 2];
+						const light = r * 0.3 + g * 0.6 + b * 0.11;
+						pixels[i * canvas.width * 4 + j * 4 + p] = light;
+						pixels[i * canvas.width * 4 + j * 4 + p + 1] = light;
+						pixels[i * canvas.width * 4 + j * 4 + p + 2] = light;
+					}
+				}
+			}
+		}
+
+		ctx.putImageData(newData, 0, 0);
+	});
+};
+loop.push({ cerinta: 8, func: cerinta8 });
+// end cerinta 8
