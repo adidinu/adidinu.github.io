@@ -73,21 +73,32 @@ loop.push({ cerinta: 3, func: cerinta3 });
 
 // cerinta 4
 const cerinta4 = () => {
-	// nu prea am inteles cerinta cu patratu fixat pe mouse dar poti sa iesi din el:))
 	clearInterval(interval);
-	let changed = false;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	// give me 3 random colors in an array
 	ctx.fillStyle = '#2ad4e7';
 	ctx.fillRect(100, 200, 100, 300);
 	ctx.fillStyle = '#dfd35d';
 	ctx.fillRect(350, 250, 350, 225);
 	ctx.fillStyle = '#9567ba';
 	ctx.fillRect(200, 100, 200, 100);
+	// asta rosu e pus de test ca daca se face albastru merge bn
+	ctx.fillStyle = '#ff0000';
+	ctx.fillRect(500, 50, 100, 100);
 
 	const originalData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-	handleMove = (e) => {};
+	handleMove = (e) => {
+		ctx.putImageData(originalData, 0, 0);
+		const newData = ctx.getImageData(e.offsetX - 10, e.offsetY - 10, 20, 20);
+		const pixels = newData.data;
+		for (let i = 0; i < pixels.length; i += 4) {
+			let r = pixels[i];
+			let b = pixels[i + 2];
+			pixels[i] = b;
+			pixels[i + 2] = r;
+		}
+		ctx.putImageData(newData, e.offsetX - 10, e.offsetY - 10);
+	};
 	canvas.addEventListener('mousemove', handleMove);
 };
 loop.push({ cerinta: 4, func: cerinta4 });
