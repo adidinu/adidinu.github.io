@@ -173,7 +173,6 @@ const cerinta7 = () => {
 	c.setAttributeNS(null, 'fill', circle.fill);
 	svg.appendChild(c);
 	const svgWidth = svg.getBoundingClientRect().width;
-	console.log(svgWidth);
 	interval = setInterval(() => {
 		circle.cx += 0.5;
 		c.setAttributeNS(null, 'cx', circle.cx);
@@ -192,7 +191,7 @@ const cerinta8 = () => {
 	img.src = 'culori.jpg';
 	ctx.drawImage(img, 0, 0);
 	const originalData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-	canvas.addEventListener('click', (e) => {
+	handleClick = (e) => {
 		ctx.putImageData(originalData, 0, 0);
 		const newData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		const pixels = newData.data;
@@ -219,7 +218,9 @@ const cerinta8 = () => {
 		}
 
 		ctx.putImageData(newData, 0, 0);
-	});
+	};
+
+	canvas.addEventListener('click', handleClick);
 };
 loop.push({ cerinta: 8, func: cerinta8 });
 // end cerinta 8
