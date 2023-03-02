@@ -20,6 +20,17 @@
 			height: auto;
 		}
 	</style>
+	<script>
+		window.fbAsyncInit = function () {
+			FB.init({
+				appId: '605620354740597',
+				autoLogAppEvents: true,
+				xfbml: true,
+				version: 'v16.0'
+			});
+		};
+	</script>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </head>
 
 <body>
@@ -43,9 +54,26 @@
 	<script>
 		const btn = document.getElementById('share');
 		btn.addEventListener('click', () => {
-			const ogImg = document.getElementById('og-img');
-			ogImg.setAttribute('content', 'https://i.imgur.com/KCz4WGm.png');
-			window.open('http://www.facebook.com/share.php?u=' + window.location.href, '_blank');
+			// const ogImg = document.getElementById('og-img');
+			// ogImg.setAttribute('content', 'https://i.imgur.com/KCz4WGm.png');
+			// window.open('http://www.facebook.com/share.php?u=' + window.location.href, '_blank');
+			FB.ui(
+				{
+					method: 'feed',
+					name: 'Facebook Dialogs',
+					link: "https://adidinu.github.io/test_fb_share/",
+					picture: "https://i.imgur.com/KCz4WGm.png",
+					caption: "data.caption",
+					description: "data.description"
+				},
+				function (response) {
+					if (response && response.post_id) {
+						alert('Post was published.');
+					} else {
+						alert('Post was not published.');
+					}
+				}
+			);
 		})
 	</script>
 	<img
