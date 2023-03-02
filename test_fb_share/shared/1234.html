@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:url" content="https://adidinu.github.io/shared/1234.html" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Your Website Title" />
+	<meta property="og:description" content="Your description" />
+	<meta id="og-img" property="og:image" content="https://i.imgur.com/O5FqBqi.jpeg">
+	<meta key="key-9" property="og:image:width" content="400" />
+	<meta key="key-10" property="og:image:height" content="300" />
+	<title>Document</title>
+	<script>
+		// get query param
+		const urlParams = new URLSearchParams(window.location.search);
+		const redirect = urlParams.get('redirect');
+		if (redirect) {
+			window.location = redirect;
+		}
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
