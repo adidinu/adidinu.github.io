@@ -1,1 +1,1 @@
-alert("from file")
+console.log("from file");
