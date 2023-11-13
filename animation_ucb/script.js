@@ -119,3 +119,26 @@ window.addEventListener('scroll', () => {
 		}
 	});
 });
+
+
+let aosDelay = 0;
+const heroContents = document.querySelectorAll('.hero-content');
+const textImgs = document.querySelectorAll('.text-img');
+
+Array.from(heroContents).forEach((heroContent) => {
+	aosDelay = 0;
+	Array.from(heroContent.children).forEach((child) => {
+		child.setAttribute('data-aos-delay', aosDelay);
+		aosDelay += 100;
+		child.setAttribute('data-aos', 'fade-up');
+	})
+});
+
+Array.from(textImgs).forEach((textImg) => {
+	aosDelay = 0;
+	Array.from(textImg.children).forEach((child) => {
+		child.setAttribute('data-aos-delay', aosDelay);
+		aosDelay += 100;
+		child.setAttribute('data-aos', 'fade-up');
+	})
+});

@@ -436,3 +436,81 @@ header, footer{
 	background-color: #8f9fff;
 	z-index: 1;
 }
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.pulse-anim > *{
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.skeleton .title{
+	width: 80%;
+	height: 50px;
+	background-color: rgb(241 245 249);
+}
+.skeleton{
+	background-color: rgb(203 213 225);
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 20px;
+	padding: 30px 50px;
+	border-radius: 20px;
+	margin-bottom: 80px;
+}
+
+.skeleton > *{
+	border-radius: 12px;
+}
+
+.skeleton .text{
+	width: 100%;
+	height: 30px;
+	width: 90%;
+	background-color: rgb(241 245 249);
+}
+.skeleton .text + .text{
+	width: 75%;
+}
+.skeleton .text + .text + .text{
+	width: 85%;
+}
+
+
+.skeleton .img{
+	width: 100%;
+	height: 350px;
+	background-color: rgb(226 232 240);
+}
+
+
+.skeleton.shine-anim{
+	background: #adadad;
+}
+.skeleton.shine-anim > *{
+	background-color: rgb(226 232 240);
+}
+.skeleton.shine-anim .title,
+.skeleton.shine-anim .text,
+.skeleton.shine-anim .img{
+  background-image:	linear-gradient(90deg, rgba(255,255,255, 0), rgba(255,255,255, 0.5),rgba(255,255,255, 0));
+	background-size: 40px 100%;
+	background-repeat: no-repeat;
+	background-position: left -40px top 0;
+}
+
+.skeleton.shine-anim > *{
+	animation: shine-loading-image 1.6s ease-in-out infinite;
+}
+
+@keyframes shine-loading-image {
+	to {
+		background-position: right -40px top 0;
+	}
+}
