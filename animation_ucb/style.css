@@ -451,7 +451,7 @@ header, footer{
 }
 
 .pulse-anim > *{
-	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	animation: pulse var(--timing) cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .skeleton .title{
@@ -467,6 +467,10 @@ header, footer{
 	padding: 30px 50px;
 	border-radius: 20px;
 	margin-bottom: 80px;
+}
+
+.skeleton.pulse-anim{
+	--timing: 2s;
 }
 
 .skeleton > *{
@@ -496,6 +500,7 @@ header, footer{
 
 .skeleton.shine-anim{
 	background: #adadad;
+	--timing: 1.6s;
 }
 .skeleton.shine-anim > *{
 	background-color: rgb(226 232 240);
@@ -510,7 +515,7 @@ header, footer{
 }
 
 .skeleton.shine-anim > *{
-	animation: shine-loading-image 1.6s ease-in-out infinite;
+	animation: shine-loading-image var(--timing) ease-in-out infinite;
 }
 
 @keyframes shine-loading-image {

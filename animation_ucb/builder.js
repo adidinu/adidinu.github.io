@@ -109,6 +109,34 @@ const OPTIONS = {
 		optionsElementSelector: ".triangles-container",
 		animateElementSelector: ".triangles-container",
 		classes: ["row-by-row"]
+	},
+	skeletonPulse:{
+		html:`<section>
+		<div class="container">
+			<div class="skeleton pulse-anim">
+				<div class="title"></div>
+				<div class="text"></div>
+				<div class="text"></div>
+				<div class="text"></div>
+				<div class="img"></div>
+			</div>
+		</div>
+	</section>`,
+	animateElementSelector: ".skeleton",
+	},
+	skeletonShine:{
+		html:`<section>
+		<div class="container">
+			<div class="skeleton shine-anim">
+				<div class="title"></div>
+				<div class="text"></div>
+				<div class="text"></div>
+				<div class="text"></div>
+				<div class="img"></div>
+			</div>
+		</div>
+	</section>`,
+	animateElementSelector: ".skeleton",
 	}
 }
 
