@@ -1,0 +1,46 @@
+.builder-buttons *{
+	color: black;
+}
+.builder-menu{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto;
+	gap: 30px;
+	align-items: center;
+	margin-top: 20px;
+}
+.builder-buttons{
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+button{
+	outline: none;
+	border: 1px solid black;
+	color: black;
+	padding: 10px 16px;
+	border-radius: 5px;
+	font-size: 18px;
+	min-width: 100px;
+	cursor:pointer;
+	background: white;
+}
+button:hover{
+	background-color: #efefef;
+}
+select{
+	padding: 12px 10px;
+	font-size: 18px;
+}
+.active-classes{
+	font-size: 18px;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 12px;
+	font-weight: bold;
+}
+.animation-select{
+	min-width: 150px;
+}
