@@ -124,9 +124,22 @@ select.addEventListener('change', (e) => {
 		}); 
 	}
 
+	const timingInput = document.querySelector('.timing-input input');
+	timingInput.value = 1000;
+	const span = document.querySelector('.timing-value');
+	container.querySelector(chosenSection?.animateElementSelector).style.setProperty('--timing', `1000ms`);
+	span.innerHTML = "1000 ms";
+
+	timingInput.addEventListener('change', (e) => {
+		const value = e.target.value;
+		const span = document.querySelector('.timing-value');
+		span.innerHTML = value + " ms";
+		container.querySelector(chosenSection?.animateElementSelector).style.setProperty('--timing', `${value}ms`);
+	});
+
 	const builderButtons = document.querySelector('.builder-buttons');
 
-	const toRemove = document.querySelectorAll('.builder-buttons > *:not(#section-select):not(.add-to-page)');
+	const toRemove = document.querySelectorAll('.builder-buttons > *:not(#section-select):not(.add-to-page):not(.timing-input)');
 	toRemove.forEach((el) => {
 		el.remove();
 	});
@@ -156,7 +169,7 @@ select.addEventListener('change', (e) => {
 		const value = animationSelect.value;
 		const alreadyActive = activeClasses.querySelector(`.${value}`);
 		const optionsElement = container.querySelector(chosenSection?.optionsElementSelector);
-		console.log(chosenSection?.optionsElementSelector)
+
 		if(alreadyActive) {
 			alreadyActive.remove();
 			optionsElement.classList.remove(value);

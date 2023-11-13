@@ -147,9 +147,10 @@ header, footer{
 	z-index: 1;
 	transform: translateX(var(--trlX)) translateY(var(--trlY));
 	opacity: 0;
+	--timing: 1s;
 }
 .trap.animate{
-	animation: trap-move 1s ease-in-out;
+	animation: trap-move var(--timing) ease-in-out;
 	animation-fill-mode: forwards;
 }
 
@@ -191,6 +192,7 @@ header, footer{
 }
 
 .corners{
+	--timing: 1s;
 	position: absolute;
 	left: var(--final-left);
 	right: var(--final-right);
@@ -202,7 +204,7 @@ header, footer{
 	opacity: var(--initial-opacity);
 }
 .corners.animate{
-	animation: corners-animate 1s ease-in-out;
+	animation: corners-animate var(--timing) ease-in-out;
 	animation-fill-mode: forwards;
 	animation-delay: 0.2s;
 }
@@ -271,7 +273,7 @@ header, footer{
 	position: absolute;
 	--left: -88px;
 	--top: 25%;
-
+	--timing: 1s;
 	left: var(--left);
 	top: var(--top);
 }
@@ -294,7 +296,7 @@ header, footer{
 }
 
 .triangles.animate{
-	animation: triangles-animate 1s ease-in-out;
+	animation: triangles-animate var(--timing) ease-in-out;
 	animation-fill-mode: forwards;
 	animation-delay: 0.2s;
 }
@@ -317,17 +319,19 @@ header, footer{
 	position: absolute;
 	left: -88px;
 	top: 25%;
+	--timing: 300ms;
+}
+.triangles-container.row-by-row{
+	--timing: 200ms;
 }
 
 .triangles-container.animate path{
-	--timing: 300ms;
 	animation: path-animate var(--timing) ease;
 	animation-fill-mode: forwards;
 	animation-delay: calc(var(--timing) / 3 * var(--col) + var(--timing) * 0.66 * var(--row));
 }
 
 .triangles-container.animate.row-by-row path{
-	--timing: 200ms;
 	animation-delay: calc(var(--timing) / 4 * var(--col) + var(--timing) * var(--row) * 5 / 4);
 }
 
