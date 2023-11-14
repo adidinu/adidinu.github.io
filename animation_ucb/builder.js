@@ -2,7 +2,7 @@ const select = document.querySelector('#section-select');
 
 const OPTIONS = {
 	hero: {
-		html: `<section class="hero-section">
+		html: `<section class="menu-section hero-section">
 	<div class="hero">
 	<img class="img-hero" src="./imgs/hero.webp" alt="">
 	<div class="corners">
@@ -42,7 +42,7 @@ const OPTIONS = {
 		classes: ["ltr", "rtl", "btt", "ttb"]
 	},
 	trianglesBasic: {
-		html: `<section class="container blue-bg">
+		html: `<section class="menu-section container blue-bg">
 	<div class="text-img sec basic">
 		<h2>Letter by our chair and ceo</h2>
 		<p class="p1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi</p>
@@ -59,7 +59,7 @@ const OPTIONS = {
 		classes: ["ltr", "rtl", "btt", "ttb"]
 	},
 	trianglesComp: {
-		html: `<section class="container blue-bg">
+		html: `<section class="menu-section container blue-bg">
 	<div class="text-img sec complicated">
 		<h2>Letter by our chair and ceo</h2>
 		<p class="p1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi</p>
@@ -111,7 +111,7 @@ const OPTIONS = {
 		classes: ["row-by-row"]
 	},
 	skeletonPulse:{
-		html:`<section>
+		html:`<section class="menu-section">
 		<div class="container">
 			<div class="skeleton pulse-anim">
 				<div class="title"></div>
@@ -125,7 +125,7 @@ const OPTIONS = {
 	animateElementSelector: ".skeleton",
 	},
 	skeletonShine:{
-		html:`<section>
+		html:`<section class="menu-section">
 		<div class="container">
 			<div class="skeleton shine-anim">
 				<div class="title"></div>
@@ -139,6 +139,90 @@ const OPTIONS = {
 	animateElementSelector: ".skeleton",
 	}
 }
+
+const pageSections = [];
+	
+const scrollFunction = () => {
+	const offset = 200;
+	const sections = document.querySelectorAll('#content .menu-section');
+	sections.forEach((section) => {
+		const el = document.querySelector(`div[data-pos="${section.dataset.pos}"]`);
+		const bigMenu = document.querySelector('.big-menu');
+		// log distance from current scroll to top of big-menu;
+		const bigMenuTop = bigMenu.offsetTop;
+		const scrollY = window.scrollY;
+		const currentScroll = Math.max(0, Math.floor(scrollY - bigMenuTop + (offset / 2)));
+		// calculate percentage of scroll out of big-menu height
+		const percentage = currentScroll / bigMenu.offsetHeight;
+		// set .line element variable --end-bkg to percentage
+		document.querySelector('.line').style.setProperty('--end-bkg', percentage * 100 + '%');
+
+		
+		
+		
+		if (window.scrollY >= section.offsetTop - offset) {
+			el.classList.add('on');
+		} else {
+			if(section.dataset.pos !== '1'){
+				el.classList.remove('on');
+			}
+		}
+		if (window.scrollY >= section.offsetTop + section.offsetHeight - offset) {
+			el.classList.add('after');
+		} else {
+			el.classList.remove('after');
+		}
+	});
+};
+
+const buildContent = () => {
+	if(!pageSections || pageSections.length === 0) return;
+
+	const content = document.querySelector('#content .big-menu');
+	console.log(content);
+	const bigMenu = document.querySelector('.big-menu .sidebar').cloneNode(true);
+	content.innerHTML = '';
+	content.appendChild(bigMenu);
+	pageSections.forEach((section) => {
+		content.appendChild(section);
+	});
+
+	window.removeEventListener('scroll', scrollFunction);
+
+	window.addEventListener('scroll', scrollFunction);
+}
+
+const addToPageBtn = document.querySelector('.add-to-page');
+
+addToPageBtn.addEventListener('click', () => {
+	const container = document.querySelector('.builder-preview');
+	const currentSection = container.children[0];
+	if(!currentSection) return;
+
+	const content = document.querySelector('#content');
+	const newSection = currentSection.cloneNode(true);
+	pageSections.push(newSection);
+	newSection.dataset.pos = pageSections.length;
+	newSection.id = `section-${pageSections.length}`;
+
+	const sectionElement = document.createElement('div');
+	sectionElement.classList.add('section-element');
+	if(pageSections.length === 1) {
+		sectionElement.classList.add('on');
+	}
+	sectionElement.dataset.pos = pageSections.length;
+
+	content.querySelector('.nav').appendChild(sectionElement);
+
+	const linkElement = document.createElement('a');
+	linkElement.href = `#section-${pageSections.length}`;
+	linkElement.innerHTML = `Section ${pageSections.length}`;
+	linkElement.dataset.pos = pageSections.length;
+
+	content.querySelector('.links').appendChild(linkElement);
+
+	buildContent();
+});
 
 select.addEventListener('change', (e) => {
 	const value = e.target.value;

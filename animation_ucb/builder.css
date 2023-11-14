@@ -50,3 +50,9 @@ select{
 .timing-input input{
 	width: 100%;
 }
+#content{
+	margin-top: 100px;
+}
+.big-menu .sidebar{
+	z-index: 50;
+}
