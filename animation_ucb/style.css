@@ -519,9 +519,6 @@ header, footer{
 .main-btn.blue{
 	background-color: darkblue;
 }
-.main-btn.blue:hover span{
-	color: white;
-}
 .main-btn:after,.main-btn:before{
 	position: absolute;
 	content: "";
@@ -530,12 +527,6 @@ header, footer{
 	height: 100%;
 	background: #eee;
 	transition: all 0.3s ease;
-}
-.main-btn.blue:after, .main-btn.blue:before{
-	background-color: rgb(40, 86, 124);
-}
-.main-btn.blue span{
-	color: #bbb;
 }
 .main-btn span{
 	position: relative;
@@ -551,10 +542,6 @@ header, footer{
 	padding: 14px 10px;
 	font-size: 20px;
 	font-weight: 600;
-	cursor: pointer;
-}
-.main-btn.blue span:after{
-	background-color: white;
 }
 .main-btn span:after{
 	position: absolute;
@@ -580,70 +567,4 @@ header, footer{
 }
 .main-btn:hover span:after{
 	width: 50px;
-}
-.buttons{
-	display: flex;
-	flex-flow: row wrap;
-	gap: 16px;
-	align-items: center;
-	justify-content: center;
-	margin: 30px 20px 0 20px;
-}
-
-.fill-btn{
-	border: 0;
-  border-radius: 0;
-  color: #ddd;
-  font-size: 20px;
-	font-weight: bold;
-  overflow: hidden;
-  padding: 14px 10px;
-  position: relative;
-  text-decoration: none;
-  transition: .2s transform ease-in-out;
-  z-index: 0;
-	min-width: 150px;
-	background-color: steelblue;
-	cursor: pointer;
-}
-.fill-btn:after{
-	background-color: darkblue;
-	border-radius: 3rem;
-	content: '';
-	display: block;
-	height: 140%;
-	width: 140%;
-	position: absolute;
-	left: -20%;
-	top: -20%;
-	transform: translate(-100%, 0) rotate(10deg);
-	transform-origin: top left;
-	transition: .3s transform ease-out;
-	z-index: -1;
-}
-.fill-btn:hover:after,
-.fill-btn.secondary:hover:after{
-	transform: translate(0,0);
-}
-.fill-btn:hover{
-	color: white;
-}
-
-.fill-btn.secondary:after{
-	transform-origin: top right;
-	transform: translate(100%, 0) rotate(-10deg);
-}
-
-.fill-btn.third:after{
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 0;
-	height: 0;
-	transform-origin: center;	
-	transition: .3s width ease-out, .3s height ease-out;
-}
-.fill-btn.third:hover:after{
-	width: 140%;
-	height: 140%;
 }

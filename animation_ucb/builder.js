@@ -15,7 +15,7 @@ const OPTIONS = {
 			<div class="hero-content">
 				<h1>Rotate animation<br/> Second row</h1>
 				<p>Integrated Annual Report 2023</p>
-				<button class="main-btn"><span>Click</span></button>
+				<button class="main-btn">Click</button>
 			</div>
 		</div>
 	</div>
@@ -30,7 +30,7 @@ const OPTIONS = {
 		<h2>Letter by our chair and ceo</h2>
 		<p class="p1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi</p>
 		<p class="p2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab pariatur eos atque sequi rerum perspiciatis, nemo nihil. Ab pariatur eos atque sequi rerum perspiciatis, nemo nihil</p>
-		<button class="main-btn blue"><span>View letter in full</span></button>
+		<button class="main-btn blue">View letter in full</button>
 		<div class="img-cont">
 			<img class="trap" src="./imgs/trapesoid.svg" alt="">
 			<img class="main-img" src="./imgs/hero.webp" alt="">
@@ -47,7 +47,7 @@ const OPTIONS = {
 		<h2>Letter by our chair and ceo</h2>
 		<p class="p1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi</p>
 		<p class="p2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab pariatur eos atque sequi rerum perspiciatis, nemo nihil. Ab pariatur eos atque sequi rerum perspiciatis, nemo nihil</p>
-		<button class="main-btn blue"><span>View letter in full</span></button>
+		<button class="main-btn blue">View letter in full</button>
 		<div class="img-cont-2">
 			<img class="triangles" src="./imgs/triangles.svg" alt="">
 			<img class="main-img" src="./imgs/hero.webp" alt="">
@@ -64,7 +64,7 @@ const OPTIONS = {
 		<h2>Letter by our chair and ceo</h2>
 		<p class="p1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi. Eveniet quam ipsa earum quas nulla possimus laborum a alias ipsam eligendi architecto quasi</p>
 		<p class="p2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab pariatur eos atque sequi rerum perspiciatis, nemo nihil. Ab pariatur eos atque sequi rerum perspiciatis, nemo nihil</p>
-		<button class="main-btn blue"><span>View letter in full</span></button>
+		<button class="main-btn blue">View letter in full</button>
 		<div class="img-cont-2">
 			<div class="triangles-container">
 				<svg width="152" height="154" viewBox="0 0 152 154" fill="none" xmlns="http://www.w3.org/2000/svg">
