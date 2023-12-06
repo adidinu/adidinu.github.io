@@ -371,6 +371,10 @@ header, footer{
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 	gap: 40px;
 }
+.selected .sidebar-links .nav,
+.selected .sidebar-links .links{
+	grid-template-rows: 1fr 1fr;
+}
 .sidebar-links .nav > div.section-element{
 	width: 24px;
 	height: 24px;
@@ -421,6 +425,9 @@ header, footer{
 	transform: translateX(-50%);
 	background-color: #8f9fff;
 	z-index: 1;
+}
+.selected .secondary-line{
+	height: 70%;
 }
 
 @keyframes pulse {

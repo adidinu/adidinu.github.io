@@ -100,7 +100,8 @@ window.addEventListener('scroll', () => {
 		// calculate percentage of scroll out of big-menu height
 		const percentage = currentScroll / bigMenu.offsetHeight;
 		// set .line element variable --end-bkg to percentage
-		document.querySelector('.line').style.setProperty('--end-bkg', percentage * 100 + '%');
+		const max = document.body.classList.contains('selected') ? 70 : 100;
+		document.querySelector('.line').style.setProperty('--end-bkg', Math.min(percentage * 100, max) + '%');
 
 		
 		
